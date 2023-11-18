@@ -2,21 +2,10 @@
 # Get data from user input
 # data is [price, product name, product link]
 
-from bs4 import BeautifulSoup as BS
-from requests_html import AsyncHTMLSession
-from requests_html import HTMLSession
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
-URL = "https://www.walmart.ca/en/search?q=iphone"
-url2 = "https://www.bestbuy.ca/en-ca/search?search=iphone"
-
-session = HTMLSession()
-asession = AsyncHTMLSession()
-
-async def get_walmart():
-    r = await asession.get(url2)
-    e = r.html.find("#__next")
-    print(r.html)
-    return r
-    
-result = asession.run(get_walmart)
-
+driver = webdriver.Chrome('./chromedriver')
+driver.get("https://www.python.org")
+print(driver.title)
+driver.close()
