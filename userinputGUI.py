@@ -5,7 +5,9 @@ from tkinter import ttk
 class AppleProductGUI:
     def __init__(self, root):
         self.root = root
+        self.root.geometry("400x600")
         self.root.title("Apple Product Selector")
+        
 
         # Creating variables to store user input
         self.selected_category = tk.StringVar()
@@ -64,8 +66,11 @@ class AppleProductGUI:
         selected_model = self.selected_model.get()
 
         if selected_category and selected_model:
-            print(f"Selected Category: {selected_category}")
-            print(f"Selected Model: {selected_model}")
+            print(f"{selected_category}")
+            a = f"{selected_model}"
+            print(a)
+            return a
+            
         else:
             print("Please select a category and enter a model.")
 
@@ -73,3 +78,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = AppleProductGUI(root)
     root.mainloop()
+    
